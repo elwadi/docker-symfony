@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+    db:
+        image: mysql
+        ports:
+            - 127.0.0.1:3306:3306
+        networks:
+            - appnet
+        volumes:
+            - "./.data/db:/var/lib/mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: secure
+    php:
+        build: php7-fpm
+        ports:
+            - 127.0.0.1:9000:9000
+        networks:
+            - appnet
+        links:
+            - db:mysqldb
+        volumes:
+            - ../local-symfony-folder:/var/www/symfony
+            - ./logs/local-symfony-folder:/var/www/symfony/app/logs
+    nginx:
+        build: nginx
+        ports:
+            - 80:80
+        networks:
+            - appnet
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+networks:
+  appnet:
+      driver: "bridge"
