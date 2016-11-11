@@ -1,14 +1,49 @@
 ### Docker multicontainer
 
-Symfony3 + MySQL + PHP7 + Nginx
+Docker multi-container with Symfony3 + MySQL + PHP7 + Nginx
 
-### Usage
+### Starting
 
 Clone this repo
 
 ```sh
 git clone https://github.com/0x13a/docker-symfony && cd docker-symfony
 ```
+
+### Configuration
+
+Well, now you have to configure your MySQL server credentials, port & address here in the `docker-compose.yml`
+
+```yml
+db:
+    image: mysql
+    ports:
+        - 127.0.0.1:3306:3306
+    networks:
+        - appnet
+    volumes:
+        - "./.data/db:/var/lib/mysql"
+    environment:
+        MYSQL_ROOT_PASSWORD: yourSecurePasswordHere
+```
+
+You have to configure your Symfony folder as well here in the `docker-compose.yml`
+
+```yml
+php:
+    build: php7-fpm
+    ports:
+        - 127.0.0.1:9000:9000
+    networks:
+        - appnet
+    links:
+        - db:mysqldb
+    volumes:
+        - ../local-symfony-folder:/var/www/symfony
+        - ./logs/local-symfony-folder:/var/www/symfony/app/logs
+```
+
+### Usage
 
 Build your docker multicontainer
 
