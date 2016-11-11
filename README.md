@@ -2,5 +2,22 @@
 
 Symfony3 + MySQL + PHP7 + Nginx
 
+### Usage
 
-i'm too lazy now, later i'm gonna update the description on how to install this
+Clone this repo
+
+```sh
+git clone https://github.com/0x13a/docker-symfony && cd docker-symfony
+```
+
+Build your docker multicontainer
+
+```sh
+docker-compose build
+```
+
+Run your multicontainer
+
+```sh
+docker-compose up -d
+```
