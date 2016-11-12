@@ -59,8 +59,8 @@ Run your multicontainer
 docker-compose up -d
 ```
 
-Now your Symfony is running in localhost, congrats!
+Now your Symfony app is running at `http://localhost`
 
 ---
 
-Learn more at [https://docs.docker.com/compose/](https://docs.docker.com/compose/) for more commands
+Learn more at [https://docs.docker.com/compose/](https://docs.docker.com)
