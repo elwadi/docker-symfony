@@ -4,7 +4,9 @@ Docker multi-container with [Symfony3](https://symfony.com) + [MySQL](https://my
 
 ### Starting
 
-Clone this repo
+In order to make it work you need [Docker](https://docs.docker.com) & [Docker Compose](https://docs.docker.com/compose/)
+
+Once you've your docker environment ready, clone this repo
 
 ```sh
 git clone https://github.com/0x13a/docker-symfony && cd docker-symfony
@@ -56,3 +58,9 @@ Run your multicontainer
 ```sh
 docker-compose up -d
 ```
+
+Now your Symfony is running in localhost, congrats!
+
+---
+
+Learn more at [https://docs.docker.com/compose/](https://docs.docker.com/compose/) for more commands
