@@ -47,13 +47,7 @@ php:
 
 ### Usage
 
-Build your docker multicontainer
-
-```sh
-docker-compose build
-```
-
-Run your multicontainer
+Build and run your docker multicontainer
 
 ```sh
 docker-compose up -d
