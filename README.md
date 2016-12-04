@@ -42,7 +42,6 @@ php:
         - db:mysqldb
     volumes:
         - ../local-symfony-folder:/var/www/symfony
-        - ./logs/local-symfony-folder:/var/www/symfony/app/logs
 ```
 
 ### Usage
