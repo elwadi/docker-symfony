@@ -2,7 +2,7 @@
 
 Docker multi-container with [Symfony3](https://symfony.com) + [MySQL](https://mysql.com) + [PHP7-FPM](https://php.net) + [Nginx](https://www.nginx.com/)
 
-![logo](https://github.com/0x13a/docker-symfony/blob/dev/logo/docker-symfony.png)
+![logo](https://github.com/0x13a/docker-symfony/blob/master/logo/docker-symfony.png)
 
 ### Starting
 
