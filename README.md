@@ -59,7 +59,7 @@ php:
 You can do that in just one line command
 
 ```sh
-bash~$ sed -i -e "s/{..\/local-symfony-folder}/..\/my-symfony-project/"  docker-compose.yml
+bash~$ sed -i '' 's/{..\/local-symfony-folder}/..\/my-symfony-project/'  docker-compose.yml
 ```
 
 
