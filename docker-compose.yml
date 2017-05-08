@@ -10,7 +10,7 @@ services:
         volumes:
             - "./.data/db:/var/lib/mysql"
         environment:
-            MYSQL_ROOT_PASSWORD: {yourMySQLPasswordHere}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     php:
         build: php7-fpm
         ports:
@@ -20,7 +20,7 @@ services:
         links:
             - db:mysqldb
         volumes:
-            - {../local-symfony-folder}:/var/www/symfony
+            - ${SYMFONY_APP_VOLUME}:/var/www/symfony
     nginx:
         build: nginx
         ports:
