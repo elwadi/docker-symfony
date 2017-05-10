@@ -11,57 +11,19 @@ In order to make it work you need [Docker](https://docs.docker.com) & [Docker Co
 Once you've your docker environment ready, clone this repo
 
 ```sh
-bash~$ git clone https://github.com/0x13a/docker-symfony && cd docker-symfony
+git clone https://github.com/0x13a/docker-symfony && cd docker-symfony
 ```
 
 
 
 ### Configuration
 
-Well, now you have to configure your **MySQL server credentials**, here in the `docker-compose.yml`
-
-```yml
-db:
-    image: mysql
-    ports:
-        - 127.0.0.1:3306:3306
-    networks:
-        - appnet
-    volumes:
-        - "./.data/db:/var/lib/mysql"
-    environment:
-        MYSQL_ROOT_PASSWORD: {yourMySQLPasswordHere}
-```
-
-You can do that in just one line command
+Well, now you have to configure your **MySQL password** and **Symfony folder**, here in the `.env` conf file
 
 ```sh
-bash~$ sed  -i '' 's/{yourMySQLPasswordHere}/secret/' docker-compose.yml
+MYSQL_ROOT_PASSWORD=root
+SYMFONY_APP_VOLUME=./local-symfony-folder 
 ```
-
-
-
-You have to configure your **Symfony folder** as well here in the `docker-compose.yml`
-
-```yml
-php:
-    build: php7-fpm
-    ports:
-        - 127.0.0.1:9000:9000
-    networks:
-        - appnet
-    links:
-        - db:mysqldb
-    volumes:
-        - {../local-symfony-folder}:/var/www/symfony
-```
-
-You can do that in just one line command
-
-```sh
-bash~$ sed -i '' 's/{..\/local-symfony-folder}/..\/my-symfony-project/'  docker-compose.yml
-```
-
 
 
 ### Usage
