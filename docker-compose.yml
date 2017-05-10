@@ -1,17 +1,17 @@
-version: '2'
+version: '3'
 
 services:
     db:
+        container_name: db
         image: mysql
         ports:
             - 127.0.0.1:3306:3306
         networks:
             - appnet
-        volumes:
-            - "./.data/db:/var/lib/mysql"
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     php:
+        container_name: php
         build: php7-fpm
         ports:
             - 127.0.0.1:9000:9000
@@ -22,6 +22,7 @@ services:
         volumes:
             - ${SYMFONY_APP_VOLUME}:/var/www/symfony
     nginx:
+        container_name: nginx
         build: nginx
         ports:
             - 80:80
@@ -31,8 +32,6 @@ services:
             - php
         volumes_from:
             - php
-        volumes:
-            - ./logs/nginx/:/var/log/nginx
 networks:
   appnet:
       driver: "bridge"
